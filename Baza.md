@@ -1,4 +1,4 @@
-# SQL naredbe za bazu podataka
+# SQL naredbe za izradu baze podataka
 
 
 Create DATABASE Filmovi
