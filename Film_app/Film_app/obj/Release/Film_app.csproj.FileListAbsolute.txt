@@ -1,0 +1,17 @@
+C:\Users\Korisnik\source\repos\Film_app\Film_app\bin\Release\Film_app.exe.config
+C:\Users\Korisnik\source\repos\Film_app\Film_app\bin\Release\Film_app.exe
+C:\Users\Korisnik\source\repos\Film_app\Film_app\bin\Release\Film_app.pdb
+C:\Users\Korisnik\source\repos\Film_app\Film_app\bin\Release\EntityFramework.dll
+C:\Users\Korisnik\source\repos\Film_app\Film_app\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Korisnik\source\repos\Film_app\Film_app\bin\Release\EntityFramework.xml
+C:\Users\Korisnik\source\repos\Film_app\Film_app\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Korisnik\source\repos\Film_app\Film_app\obj\Release\Film_app.csprojAssemblyReference.cache
+C:\Users\Korisnik\source\repos\Film_app\Film_app\obj\Release\Film_app.Filmovi.resources
+C:\Users\Korisnik\source\repos\Film_app\Film_app\obj\Release\Film_app.Hrvatski.resources
+C:\Users\Korisnik\source\repos\Film_app\Film_app\obj\Release\Film_app.Properties.Resources.resources
+C:\Users\Korisnik\source\repos\Film_app\Film_app\obj\Release\Film_app.Strani.resources
+C:\Users\Korisnik\source\repos\Film_app\Film_app\obj\Release\Film_app.csproj.GenerateResource.cache
+C:\Users\Korisnik\source\repos\Film_app\Film_app\obj\Release\Film_app.csproj.CoreCompileInputs.cache
+C:\Users\Korisnik\source\repos\Film_app\Film_app\obj\Release\Film_app.csproj.CopyComplete
+C:\Users\Korisnik\source\repos\Film_app\Film_app\obj\Release\Film_app.exe
+C:\Users\Korisnik\source\repos\Film_app\Film_app\obj\Release\Film_app.pdb

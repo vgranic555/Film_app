@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BazaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Čovjek">
+    <Key>
+      <PropertyRef Name="Čovjek_ID" />
+    </Key>
+    <Property Name="Čovjek_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ime_i_prezime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Rod" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Godina_rođenja" Type="Int32" />
+    <Property Name="Država_rođenja" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Film_čovjek" Relationship="Self.FK_Čovjek" FromRole="Čovjek" ToRole="Film_čovjek" />
+  </EntityType>
+  <EntityType Name="Film">
+    <Key>
+      <PropertyRef Name="Film_ID" />
+    </Key>
+    <Property Name="Film_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ime_filma" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Žanr" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Godina_izdanja" Type="Int32" />
+    <Property Name="Zarada" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="Produkcijska_kuća_film" Relationship="Self.FK_Film" FromRole="Film" ToRole="Produkcijska_kuća_film" />
+    <NavigationProperty Name="Film_čovjek" Relationship="Self.FK_Filmovi" FromRole="Film" ToRole="Film_čovjek" />
+    <NavigationProperty Name="Hrvatski_film" Relationship="Self.FK_Hrvatski_film" FromRole="Film" ToRole="Hrvatski_film" />
+    <NavigationProperty Name="Nagrada" Relationship="Self.FK_Nagrada_Film" FromRole="Film" ToRole="Nagrada" />
+    <NavigationProperty Name="Strani_film" Relationship="Self.FK_Strani_film" FromRole="Film" ToRole="Strani_film" />
+  </EntityType>
+  <EntityType Name="Film_čovjek">
+    <Key>
+      <PropertyRef Name="Film_Čovjek_ID" />
+    </Key>
+    <Property Name="Film_Čovjek_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Zanimanje" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Glumačka_uloga" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Čovjek" Relationship="Self.FK_Čovjek" FromRole="Film_čovjek" ToRole="Čovjek" />
+    <NavigationProperty Name="Film" Relationship="Self.FK_Filmovi" FromRole="Film_čovjek" ToRole="Film" />
+  </EntityType>
+  <EntityType Name="Hrvatski_film">
+    <Key>
+      <PropertyRef Name="Film_ID" />
+    </Key>
+    <Property Name="Film_ID" Type="Int32" Nullable="false" />
+    <Property Name="Englesko_ime" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Film" Relationship="Self.FK_Hrvatski_film" FromRole="Hrvatski_film" ToRole="Film" />
+  </EntityType>
+  <EntityType Name="Nagrada">
+    <Key>
+      <PropertyRef Name="Nagrada_ID" />
+    </Key>
+    <Property Name="Nagrada_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Organizacija" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Kategorija" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Godina_dodjele" Type="Int32" />
+    <NavigationProperty Name="Film" Relationship="Self.FK_Nagrada_Film" FromRole="Nagrada" ToRole="Film" />
+  </EntityType>
+  <EntityType Name="Produkcijska_kuća">
+    <Key>
+      <PropertyRef Name="Produkcijska_kuća_ID" />
+    </Key>
+    <Property Name="Produkcijska_kuća_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ime_produkcijske_kuće" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Država" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Godina_osnutka" Type="Int32" />
+    <NavigationProperty Name="Produkcijska_kuća_film" Relationship="Self.FK_Produkcijska_kuća" FromRole="Produkcijska_kuća" ToRole="Produkcijska_kuća_film" />
+  </EntityType>
+  <EntityType Name="Produkcijska_kuća_film">
+    <Key>
+      <PropertyRef Name="Produkcijska_kuća_film_ID" />
+    </Key>
+    <Property Name="Produkcijska_kuća_film_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Film" Relationship="Self.FK_Film" FromRole="Produkcijska_kuća_film" ToRole="Film" />
+    <NavigationProperty Name="Produkcijska_kuća" Relationship="Self.FK_Produkcijska_kuća" FromRole="Produkcijska_kuća_film" ToRole="Produkcijska_kuća" />
+  </EntityType>
+  <EntityType Name="Strani_film">
+    <Key>
+      <PropertyRef Name="Film_ID" />
+    </Key>
+    <Property Name="Film_ID" Type="Int32" Nullable="false" />
+    <Property Name="Lokalizirano_hrvatsko_ime" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Država_podrijetla" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Film" Relationship="Self.FK_Strani_film" FromRole="Strani_film" ToRole="Film" />
+  </EntityType>
+  <Association Name="FK_Čovjek">
+    <End Role="Čovjek" Type="Self.Čovjek" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Film_čovjek" Type="Self.Film_čovjek" Multiplicity="*" />
+  </Association>
+  <Association Name="FK_Film">
+    <End Role="Film" Type="Self.Film" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Produkcijska_kuća_film" Type="Self.Produkcijska_kuća_film" Multiplicity="*" />
+  </Association>
+  <Association Name="FK_Filmovi">
+    <End Role="Film" Type="Self.Film" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Film_čovjek" Type="Self.Film_čovjek" Multiplicity="*" />
+  </Association>
+  <Association Name="FK_Hrvatski_film">
+    <End Role="Film" Type="Self.Film" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Hrvatski_film" Type="Self.Hrvatski_film" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Film">
+        <PropertyRef Name="Film_ID" />
+      </Principal>
+      <Dependent Role="Hrvatski_film">
+        <PropertyRef Name="Film_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Nagrada_Film">
+    <End Role="Film" Type="Self.Film" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Nagrada" Type="Self.Nagrada" Multiplicity="*" />
+  </Association>
+  <Association Name="FK_Strani_film">
+    <End Role="Film" Type="Self.Film" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Strani_film" Type="Self.Strani_film" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Film">
+        <PropertyRef Name="Film_ID" />
+      </Principal>
+      <Dependent Role="Strani_film">
+        <PropertyRef Name="Film_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Produkcijska_kuća">
+    <End Role="Produkcijska_kuća" Type="Self.Produkcijska_kuća" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Produkcijska_kuća_film" Type="Self.Produkcijska_kuća_film" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="BazaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Čovjek" EntityType="Self.Čovjek" />
+    <EntitySet Name="Film" EntityType="Self.Film" />
+    <EntitySet Name="Film_čovjek" EntityType="Self.Film_čovjek" />
+    <EntitySet Name="Hrvatski_film" EntityType="Self.Hrvatski_film" />
+    <EntitySet Name="Nagrada" EntityType="Self.Nagrada" />
+    <EntitySet Name="Produkcijska_kuća" EntityType="Self.Produkcijska_kuća" />
+    <EntitySet Name="Produkcijska_kuća_film" EntityType="Self.Produkcijska_kuća_film" />
+    <EntitySet Name="Strani_film" EntityType="Self.Strani_film" />
+    <AssociationSet Name="FK_Čovjek" Association="Self.FK_Čovjek">
+      <End Role="Čovjek" EntitySet="Čovjek" />
+      <End Role="Film_čovjek" EntitySet="Film_čovjek" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Film" Association="Self.FK_Film">
+      <End Role="Film" EntitySet="Film" />
+      <End Role="Produkcijska_kuća_film" EntitySet="Produkcijska_kuća_film" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Filmovi" Association="Self.FK_Filmovi">
+      <End Role="Film" EntitySet="Film" />
+      <End Role="Film_čovjek" EntitySet="Film_čovjek" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hrvatski_film" Association="Self.FK_Hrvatski_film">
+      <End Role="Film" EntitySet="Film" />
+      <End Role="Hrvatski_film" EntitySet="Hrvatski_film" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Nagrada_Film" Association="Self.FK_Nagrada_Film">
+      <End Role="Film" EntitySet="Film" />
+      <End Role="Nagrada" EntitySet="Nagrada" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Strani_film" Association="Self.FK_Strani_film">
+      <End Role="Film" EntitySet="Film" />
+      <End Role="Strani_film" EntitySet="Strani_film" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Produkcijska_kuća" Association="Self.FK_Produkcijska_kuća">
+      <End Role="Produkcijska_kuća" EntitySet="Produkcijska_kuća" />
+      <End Role="Produkcijska_kuća_film" EntitySet="Produkcijska_kuća_film" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

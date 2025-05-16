@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FilmoviModelStoreContainer" CdmEntityContainer="FilmoviEntities">
+    <EntitySetMapping Name="Films">
+      <EntityTypeMapping TypeName="FilmoviModel.Film">
+        <MappingFragment StoreEntitySet="Film">
+          <ScalarProperty Name="Film_ID" ColumnName="Film_ID" />
+          <ScalarProperty Name="Ime_filma" ColumnName="Ime_filma" />
+          <ScalarProperty Name="Žanr" ColumnName="Žanr" />
+          <ScalarProperty Name="Godina_izdanja" ColumnName="Godina_izdanja" />
+          <ScalarProperty Name="Zarada" ColumnName="Zarada" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

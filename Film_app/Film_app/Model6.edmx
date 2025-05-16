@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ČovjekFilmModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Film_čovjek">
+          <Key>
+            <PropertyRef Name="Film_Čovjek_ID" />
+          </Key>
+          <Property Name="Film_Čovjek_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Čovjek_ID" Type="int" />
+          <Property Name="Film_ID" Type="int" />
+          <Property Name="Zanimanje" Type="nvarchar" MaxLength="100" />
+          <Property Name="Glumačka_uloga" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityContainer Name="ČovjekFilmModelStoreContainer">
+          <EntitySet Name="Film_čovjek" EntityType="Self.Film_čovjek" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ČovjekFilmModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Film_čovjek">
+          <Key>
+            <PropertyRef Name="Film_Čovjek_ID" />
+          </Key>
+          <Property Name="Film_Čovjek_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Čovjek_ID" Type="Int32" />
+          <Property Name="Film_ID" Type="Int32" />
+          <Property Name="Zanimanje" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Glumačka_uloga" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="ČovjekFilmEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Film_čovjek" EntityType="Self.Film_čovjek" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ČovjekFilmModelStoreContainer" CdmEntityContainer="ČovjekFilmEntities">
+          <EntitySetMapping Name="Film_čovjek">
+            <EntityTypeMapping TypeName="ČovjekFilmModel.Film_čovjek">
+              <MappingFragment StoreEntitySet="Film_čovjek">
+                <ScalarProperty Name="Film_Čovjek_ID" ColumnName="Film_Čovjek_ID" />
+                <ScalarProperty Name="Čovjek_ID" ColumnName="Čovjek_ID" />
+                <ScalarProperty Name="Film_ID" ColumnName="Film_ID" />
+                <ScalarProperty Name="Zanimanje" ColumnName="Zanimanje" />
+                <ScalarProperty Name="Glumačka_uloga" ColumnName="Glumačka_uloga" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

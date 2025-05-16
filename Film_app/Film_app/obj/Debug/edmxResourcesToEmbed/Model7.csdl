@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProdModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Produkcijska_kuća">
+    <Key>
+      <PropertyRef Name="Produkcijska_kuća_ID" />
+    </Key>
+    <Property Name="Produkcijska_kuća_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ime_produkcijske_kuće" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Država" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Godina_osnutka" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="ProdEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Produkcijska_kuća" EntityType="Self.Produkcijska_kuća" />
+  </EntityContainer>
+</Schema>

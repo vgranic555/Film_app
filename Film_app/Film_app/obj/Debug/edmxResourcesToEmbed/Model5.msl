@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FilmoviModel4StoreContainer" CdmEntityContainer="LjudiEntities1">
+    <EntitySetMapping Name="Čovjek">
+      <EntityTypeMapping TypeName="FilmoviModel4.Čovjek">
+        <MappingFragment StoreEntitySet="Čovjek">
+          <ScalarProperty Name="Čovjek_ID" ColumnName="Čovjek_ID" />
+          <ScalarProperty Name="Ime_i_prezime" ColumnName="Ime_i_prezime" />
+          <ScalarProperty Name="Rod" ColumnName="Rod" />
+          <ScalarProperty Name="Godina_rođenja" ColumnName="Godina_rođenja" />
+          <ScalarProperty Name="Država_rođenja" ColumnName="Država_rođenja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

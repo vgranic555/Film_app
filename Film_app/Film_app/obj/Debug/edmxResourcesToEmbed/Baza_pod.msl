@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BazaModelStoreContainer" CdmEntityContainer="BazaEntities">
+    <EntitySetMapping Name="Čovjek">
+      <EntityTypeMapping TypeName="BazaModel.Čovjek">
+        <MappingFragment StoreEntitySet="Čovjek">
+          <ScalarProperty Name="Čovjek_ID" ColumnName="Čovjek_ID" />
+          <ScalarProperty Name="Ime_i_prezime" ColumnName="Ime_i_prezime" />
+          <ScalarProperty Name="Rod" ColumnName="Rod" />
+          <ScalarProperty Name="Godina_rođenja" ColumnName="Godina_rođenja" />
+          <ScalarProperty Name="Država_rođenja" ColumnName="Država_rođenja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Film">
+      <EntityTypeMapping TypeName="BazaModel.Film">
+        <MappingFragment StoreEntitySet="Film">
+          <ScalarProperty Name="Film_ID" ColumnName="Film_ID" />
+          <ScalarProperty Name="Ime_filma" ColumnName="Ime_filma" />
+          <ScalarProperty Name="Žanr" ColumnName="Žanr" />
+          <ScalarProperty Name="Godina_izdanja" ColumnName="Godina_izdanja" />
+          <ScalarProperty Name="Zarada" ColumnName="Zarada" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Film_čovjek">
+      <EntityTypeMapping TypeName="BazaModel.Film_čovjek">
+        <MappingFragment StoreEntitySet="Film_čovjek">
+          <ScalarProperty Name="Film_Čovjek_ID" ColumnName="Film_Čovjek_ID" />
+          <ScalarProperty Name="Zanimanje" ColumnName="Zanimanje" />
+          <ScalarProperty Name="Glumačka_uloga" ColumnName="Glumačka_uloga" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hrvatski_film">
+      <EntityTypeMapping TypeName="BazaModel.Hrvatski_film">
+        <MappingFragment StoreEntitySet="Hrvatski_film">
+          <ScalarProperty Name="Film_ID" ColumnName="Film_ID" />
+          <ScalarProperty Name="Englesko_ime" ColumnName="Englesko_ime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nagrada">
+      <EntityTypeMapping TypeName="BazaModel.Nagrada">
+        <MappingFragment StoreEntitySet="Nagrada">
+          <ScalarProperty Name="Nagrada_ID" ColumnName="Nagrada_ID" />
+          <ScalarProperty Name="Organizacija" ColumnName="Organizacija" />
+          <ScalarProperty Name="Kategorija" ColumnName="Kategorija" />
+          <ScalarProperty Name="Godina_dodjele" ColumnName="Godina_dodjele" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Produkcijska_kuća">
+      <EntityTypeMapping TypeName="BazaModel.Produkcijska_kuća">
+        <MappingFragment StoreEntitySet="Produkcijska_kuća">
+          <ScalarProperty Name="Produkcijska_kuća_ID" ColumnName="Produkcijska_kuća_ID" />
+          <ScalarProperty Name="Ime_produkcijske_kuće" ColumnName="Ime_produkcijske_kuće" />
+          <ScalarProperty Name="Država" ColumnName="Država" />
+          <ScalarProperty Name="Godina_osnutka" ColumnName="Godina_osnutka" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Produkcijska_kuća_film">
+      <EntityTypeMapping TypeName="BazaModel.Produkcijska_kuća_film">
+        <MappingFragment StoreEntitySet="Produkcijska_kuća_film">
+          <ScalarProperty Name="Produkcijska_kuća_film_ID" ColumnName="Produkcijska_kuća_film_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Strani_film">
+      <EntityTypeMapping TypeName="BazaModel.Strani_film">
+        <MappingFragment StoreEntitySet="Strani_film">
+          <ScalarProperty Name="Film_ID" ColumnName="Film_ID" />
+          <ScalarProperty Name="Lokalizirano_hrvatsko_ime" ColumnName="Lokalizirano_hrvatsko_ime" />
+          <ScalarProperty Name="Država_podrijetla" ColumnName="Država_podrijetla" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FK_Čovjek" TypeName="BazaModel.FK_Čovjek" StoreEntitySet="Film_čovjek">
+      <EndProperty Name="Čovjek">
+        <ScalarProperty Name="Čovjek_ID" ColumnName="Čovjek_ID" />
+      </EndProperty>
+      <EndProperty Name="Film_čovjek">
+        <ScalarProperty Name="Film_Čovjek_ID" ColumnName="Film_Čovjek_ID" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="Čovjek_ID" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_Film" TypeName="BazaModel.FK_Film" StoreEntitySet="Produkcijska_kuća_film">
+      <EndProperty Name="Film">
+        <ScalarProperty Name="Film_ID" ColumnName="Film_ID" />
+      </EndProperty>
+      <EndProperty Name="Produkcijska_kuća_film">
+        <ScalarProperty Name="Produkcijska_kuća_film_ID" ColumnName="Produkcijska_kuća_film_ID" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="Film_ID" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_Filmovi" TypeName="BazaModel.FK_Filmovi" StoreEntitySet="Film_čovjek">
+      <EndProperty Name="Film">
+        <ScalarProperty Name="Film_ID" ColumnName="Film_ID" />
+      </EndProperty>
+      <EndProperty Name="Film_čovjek">
+        <ScalarProperty Name="Film_Čovjek_ID" ColumnName="Film_Čovjek_ID" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="Film_ID" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_Nagrada_Film" TypeName="BazaModel.FK_Nagrada_Film" StoreEntitySet="Nagrada">
+      <EndProperty Name="Film">
+        <ScalarProperty Name="Film_ID" ColumnName="Film_ID" />
+      </EndProperty>
+      <EndProperty Name="Nagrada">
+        <ScalarProperty Name="Nagrada_ID" ColumnName="Nagrada_ID" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="Film_ID" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_Produkcijska_kuća" TypeName="BazaModel.FK_Produkcijska_kuća" StoreEntitySet="Produkcijska_kuća_film">
+      <EndProperty Name="Produkcijska_kuća">
+        <ScalarProperty Name="Produkcijska_kuća_ID" ColumnName="Produkcijska_kuća_ID" />
+      </EndProperty>
+      <EndProperty Name="Produkcijska_kuća_film">
+        <ScalarProperty Name="Produkcijska_kuća_film_ID" ColumnName="Produkcijska_kuća_film_ID" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="Produkcijska_kuća_ID" />
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

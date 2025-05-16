@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FilmoviModel2" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Strani_film">
+    <Key>
+      <PropertyRef Name="Film_ID" />
+    </Key>
+    <Property Name="Film_ID" Type="Int32" Nullable="false" />
+    <Property Name="Lokalizirano_hrvatsko_ime" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Država_podrijetla" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="FilmoviEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Strani_film" EntityType="Self.Strani_film" />
+  </EntityContainer>
+</Schema>

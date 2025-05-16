@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ProdModelStoreContainer" CdmEntityContainer="ProdEntities">
+    <EntitySetMapping Name="Produkcijska_kuća">
+      <EntityTypeMapping TypeName="ProdModel.Produkcijska_kuća">
+        <MappingFragment StoreEntitySet="Produkcijska_kuća">
+          <ScalarProperty Name="Produkcijska_kuća_ID" ColumnName="Produkcijska_kuća_ID" />
+          <ScalarProperty Name="Ime_produkcijske_kuće" ColumnName="Ime_produkcijske_kuće" />
+          <ScalarProperty Name="Država" ColumnName="Država" />
+          <ScalarProperty Name="Godina_osnutka" ColumnName="Godina_osnutka" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

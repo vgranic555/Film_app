@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProdFilmModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Produkcijska_kuća_film">
+    <Key>
+      <PropertyRef Name="Produkcijska_kuća_film_ID" />
+    </Key>
+    <Property Name="Produkcijska_kuća_film_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Produkcijska_kuća_ID" Type="Int32" />
+    <Property Name="Film_ID" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="ProdFilmEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Produkcijska_kuća_film" EntityType="Self.Produkcijska_kuća_film" />
+  </EntityContainer>
+</Schema>

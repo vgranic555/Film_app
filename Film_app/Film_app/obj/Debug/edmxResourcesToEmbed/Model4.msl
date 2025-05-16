@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NagradaModelStoreContainer" CdmEntityContainer="NagradaEntities">
+    <EntitySetMapping Name="Nagrada">
+      <EntityTypeMapping TypeName="NagradaModel.Nagrada">
+        <MappingFragment StoreEntitySet="Nagrada">
+          <ScalarProperty Name="Nagrada_ID" ColumnName="Nagrada_ID" />
+          <ScalarProperty Name="Film_ID" ColumnName="Film_ID" />
+          <ScalarProperty Name="Organizacija" ColumnName="Organizacija" />
+          <ScalarProperty Name="Kategorija" ColumnName="Kategorija" />
+          <ScalarProperty Name="Godina_dodjele" ColumnName="Godina_dodjele" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
